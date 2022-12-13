@@ -17,6 +17,14 @@ After cloning this repro, run `git submodule update --init --recursive` to corre
 
 To start, open Unity Hub and use `Open->Add Project from Disc` and select `minimal-error-repro` in the File Explorer.
 
+You will then need to add the MuJoCo Plugin package yourself so that the absolute path is correct on your machine.
+
+1. Go to `Window->Package Manager`.
+2. Click the + to add a package. `Add package from disc`
+3. In the File Explorer, navigate to the file in the repro sub-directory `mujoco/unity/package.json`
+4. Unity should re-compile with the MuJoCo plugin.
+
+
 ## MJCF Changes
 First, to import the MJCF `2f85.xml` (which is an adaptation of the similarly-titled file from the Menagerie), it was necessary to sub-sample the mesh to not trigger Unity's maximum mesh value limit. Therefore, the standard `.stl` files have been replaced with sub-sampled versions (found in `Models/meshes`) 
 
@@ -27,7 +35,7 @@ When creating the Unity project `minimal-error-repro`, I imported `2f85.xml` usi
 "anchor in connect connect_46 ignored. Set Transforms in the editor."
 ```
 ## Runtime Error
-When attempting to run the scene `GripperScene` with the imported gripper, Unity encounters MuJoCo runtime errors, which are caused by this error:
+When attempting to run the scene `GripperScene` with the imported gripper, Unity encounters MuJoCo runtime errors `Failed to creat Mujoco runtime`, which are caused by this error:
 ```
 "IOException: Error loading the model: XML Error: required attribute missing: 'anchor'
 Element 'connect', line 1"
