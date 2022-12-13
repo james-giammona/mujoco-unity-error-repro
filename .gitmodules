@@ -1,0 +1,3 @@
+[submodule "minimal-error-repo/mujoco"]
+	path = minimal-error-repo/mujoco
+	url = git@github.com:jespersmith/mujoco.git
